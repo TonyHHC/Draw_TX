@@ -60,16 +60,23 @@ class Draw_Data():
         if objPanelSub[0] is not None:
             mpf.candlestick2_ohlc(self.m_plotSub[0], dfTmp['open'], dfTmp['high'], dfTmp['low'],
                                   dfTmp['close'], width=0.5, colorup='r', colordown='g', alpha=0.75)
+            self.m_plotSub[0].plot(dfTmp.index, dfTmp['Close_SMA5'], color='blue', label='SMA 5')
+            self.m_plotSub[0].plot(dfTmp.index, dfTmp['Close_SMA20'], color='black', label='SMA 20')
+            self.m_plotSub[0].legend(loc='upper right')
             FigureCanvas(objPanelSub[0], -1, self.m_figSub[0])
 
         if objPanelSub[1] is not None:
             self.m_plotSub[1].bar(
-                dfTmp.index, dfTmp['MACD_DEF'], 0.5)
+                dfTmp.index, dfTmp['MACD_OSC'], 0.5, color='black', label='OSC')
+            self.m_plotSub[1].plot(dfTmp.index, dfTmp['MACD_DIF'], color='green', label='DIF')
+            self.m_plotSub[1].plot(dfTmp.index, dfTmp['MACD_DEM'], color='red', label='DEM')
+            self.m_plotSub[1].legend(loc='upper right')
             FigureCanvas(objPanelSub[1], -1, self.m_figSub[1])
 
         if objPanelSub[2] is not None:
-            self.m_plotSub[2].bar(
-                dfTmp.index, dfTmp['MACD_DEF'], 0.5)
+            self.m_plotSub[2].plot(dfTmp.index, dfTmp['KD_K'], color='red', label='K')
+            self.m_plotSub[2].plot(dfTmp.index, dfTmp['KD_D'], color='green', label='D')
+            self.m_plotSub[2].legend(loc='upper right')
             FigureCanvas(objPanelSub[2], -1, self.m_figSub[2])
 
         del(dfTmp)

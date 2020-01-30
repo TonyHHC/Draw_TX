@@ -28,12 +28,14 @@ class TX_Data():
     def CalculateTech(self):
         self.m_dfTX_Data['PCT_Close'] = (
             self.m_dfTX_Data['close'].pct_change() * 100)
-        self.m_dfTX_Data['PCT_SMA20'] = abstract.SMA(
-            self.m_dfTX_Data['PCT_Close'], timeperiod=20)
+        self.m_dfTX_Data['Close_SMA5'] = abstract.SMA(
+            self.m_dfTX_Data['close'], timeperiod=5)
+        self.m_dfTX_Data['Close_SMA20'] = abstract.SMA(
+            self.m_dfTX_Data['close'], timeperiod=20)
 
         # MACD
-        self.m_dfTX_Data['MACD_DEF'], self.m_dfTX_Data['MACD_DEM'], self.m_dfTX_Data['MACD_OSC'] = talib.MACD(
-            self.m_dfTX_Data['PCT_Close'], fastperiod=12, slowperiod=26, signalperiod=6)
+        self.m_dfTX_Data['MACD_DIF'], self.m_dfTX_Data['MACD_DEM'], self.m_dfTX_Data['MACD_OSC'] = talib.MACD(
+            self.m_dfTX_Data['close'], fastperiod=12, slowperiod=26, signalperiod=6)
 
         # KD
         self.m_dfTX_Data['KD_K'], self.m_dfTX_Data['KD_D'] = talib.STOCH(
