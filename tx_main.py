@@ -49,7 +49,7 @@ class MainFrame(frmMain.frmMain):
             szTmp = objTmp.GetSize()
             tpPanelSubSize.append(szTmp)
 
-        self.m_objDraw_Data.PrepareFifure(tpPanelSubSize)
+        self.m_objDraw_Data.PrepareFigure(tpPanelSubSize)
 
         iIndex = self.m_scrollBarDate.GetThumbPosition()
         strStartDate, strEndDate = self.m_objDraw_Data.Draw(

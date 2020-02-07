@@ -26,9 +26,9 @@ class Draw_Data():
         self.m_figSub = []
         self.m_plotSub = []
 
-        self.PrepareFifure([None, None, None])
+        self.PrepareFigure([None, None, None])
 
-    def PrepareFifure(self, szPanelPixelSub):
+    def PrepareFigure(self, szPanelPixelSub):
         # create figure if necessary
         if len(self.m_figSub) == 0:
             i = 0
